@@ -1,0 +1,6 @@
+# Project Wiki Index
+
+Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This folder is natively ingested by the Antigravity IDE KI system to provide deep semantic context on architectural decisions.
+
+## Core Concepts
+- [The Sovereign Node Architecture](pages/architecture_shift.md): The pivot from the legacy Linux CLI to the isolated Windows 11 / Antigravity IDE architecture.

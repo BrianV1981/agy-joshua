@@ -4,3 +4,4 @@ Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This 
 
 ## Core Concepts
 - [The Sovereign Node Architecture](pages/architecture_shift.md): The pivot from the legacy Linux CLI to the isolated Windows 11 / Antigravity IDE architecture.
+- [Agent Meta-Modifications (Zero-Exemption Policy)](pages/agent_meta_modifications.md): Strict rules on applying GitOps to agent skills, plugins, and configurations.

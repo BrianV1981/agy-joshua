@@ -6,3 +6,9 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 - **Scaffolded Wiki:** Created initial `index.md`, `log.md`, and `pages/`.
 - **Architectural Shift:** Documented the migration away from the legacy Linux bash wrappers (`joshua_os/`) to the modern Windows Sovereign Node architecture.
 - **Files Touched:** Created `pages/architecture_shift.md`.
+
+## [2026-08-27] ingest | MCP Portability, Skill CLI Bugfix, & Zero-Exemption Policy
+- **MCP Portability:** Fixed LanceDB MCP paths to resolve dynamically via `os.path.abspath(__file__)` rather than hardcoded CWDs.
+- **Skill Bugfix:** Fixed `aim-projects` skill which incorrectly used `--text` for single select fields in GitHub Projects v2.
+- **Zero-Exemption Policy:** Amended `GEMINI.md` to strictly forbid bypassing GitOps for meta-modifications.
+- **Files Touched:** Created `pages/agent_meta_modifications.md`.

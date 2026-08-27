@@ -1,8 +1,8 @@
-# J.O.S.H.U.A. � Engineering Handoff
+# J.O.S.H.U.A. - Engineering Handoff
 
-> **Updated:** 2026-08-27T01:37:24-04:00
+> **Updated:** 2026-08-27T01:52:00-04:00
 > **Updated by:** Antigravity Desktop Session (Standard App 2.0)
-> **Priority Mission:** Operate the repository, ingest datajacks, and assist the Operator with subsequent tasks.
+> **Priority Mission:** Resolve Configuration Drift & Bootstrapping Blindspots
 > **Operator:** Brian Vasquez
 
 ---
@@ -10,14 +10,15 @@
 ## 0. COMPLETED WORK (DO NOT REVISIT)
 | Session | Work | Status |
 |---------|------|--------|
-| Previous | Eradicated Linux \joshua_os/\ directory | ? RESOLVED |
-| Previous | Re-wrote \mcp_servers/lancedb_mcp.py\ | ? RESOLVED |
-| Previous | Built \scripts/ingest_docs.py\ using Length-Constrained Accumulator & Ollama | ? RESOLVED |
-| Previous | Scaffolded \memory-wiki/\ and logged the architectural shift | ? RESOLVED |
-| Current | Initial Git commit executed | ? RESOLVED |
-| Current | Restored MCP Portability (dynamic paths, global \ollama\, no \uv\) | ? RESOLVED |
-| Current | Fixed \im-projects\ GitHub CLI flag bug (\--single-select-option-id\) | ? RESOLVED |
-| Current | Enforced Zero-Exemption GitOps policy in \GEMINI.md\ | ? RESOLVED |
+| Previous | Eradicated Linux `joshua_os/` directory | ✅ RESOLVED |
+| Previous | Re-wrote `mcp_servers/lancedb_mcp.py` | ✅ RESOLVED |
+| Previous | Built `scripts/ingest_docs.py` using Length-Constrained Accumulator & Ollama | ✅ RESOLVED |
+| Previous | Scaffolded `memory-wiki/` and logged the architectural shift | ✅ RESOLVED |
+| Current | Restored MCP Portability (dynamic paths, global `ollama`, no `uv`) | ✅ RESOLVED |
+| Current | Fixed `aim-projects` GitHub CLI flag bug (`--single-select-option-id`) | ✅ RESOLVED |
+| Current | Enforced Zero-Exemption GitOps policy in `GEMINI.md` | ✅ RESOLVED |
+| Current | Performed End-to-End Repository Audit & Documented Drift | ✅ RESOLVED |
+| Current | Logged Audit findings into `memory-wiki/` & Opened GitHub Issues | ✅ RESOLVED |
 
 ---
 
@@ -25,50 +26,67 @@
 J.O.S.H.U.A. is a universal OS framework for autonomous agents natively operating within Antigravity. It mandates Sovereign Nodes (air-gapped local LanceDB instances via MCP), Test-Driven GitOps, and Epistemic Certainty. The repository is a highly curated template now fully migrated and functional on Windows.
 
 ### Your Knowledge Base
-- \C:\agy-joshua\GEMINI.md\ (Core Mandates)
-- \C:\agy-joshua\memory-wiki\index.md\ (Persistent Subconscious Memory - CHECK RECENT ENTRIES)
+- `C:\agy-joshua\GEMINI.md` (Core Mandates)
+- `C:\agy-joshua\memory-wiki\index.md` (Persistent Subconscious Memory)
+- `C:\agy-joshua\memory-wiki\pages\configuration_drift_audit.md` (Recent Audit Findings)
 
 ---
 
-## 2. YOUR MISSION: OPERATIONAL READINESS
-The OS architecture has been successfully ported, debugged, and integrated into the Antigravity 2.0 environment. The GitHub kanban board is live, the skills are loaded and mapped, and the LanceDB MCP server is dynamically resolving. Your mission is to serve as the active system agent for the Operator.
+## 2. YOUR MISSION: RESOLVE CONFIGURATION DRIFT
+The recent End-to-End Audit discovered 3 critical bugs and 3 architectural enhancements that need to be resolved to ensure the OS framework is portable and fully functional out-of-the-box when cloned. 
 
 ### Execution Queue (in order)
-#### 1?? Await Operator Directives
-**Problem:** The core bootstrap is complete.
-**Fix:** Await the first operational task from the Operator.
+#### 1️⃣ Resolve Gitignore & Skills Discovery Trap
+**Problem:** `.agents/` is gitignored, meaning `skills.json` is missing on fresh clones.
+**Fix:** Exclude `.agents/skills.json` from gitignore or have `init-workspace.ps1` generate it. (See GitHub Board)
+
+#### 2️⃣ Update Obsolete MCP Configuration
+**Problem:** `init-workspace.ps1` still generates an `mcp_config.json` that invokes LanceDB server using `uv run`.
+**Fix:** Update `init-workspace.ps1` to write `"command": "python"`.
+
+#### 3️⃣ Fix Ingestion Engine's Blindspot
+**Problem:** `scripts/ingest_docs.py` has a hardcoded `DOCS_DIR = "./docs"`.
+**Fix:** Parameterize it to accept target directories so it can index `memory-wiki/` as well.
+
+#### 4️⃣ Architectural Enhancements (Optional but Recommended)
+- Setup a Testing Framework (e.g., `pytest`) for Python scripts.
+- Wrap scripts into a Unified Task Runner CLI (`joshua` CLI).
+- Graceful DB Fallback in `lancedb_mcp.py`.
 
 ---
 
 ## 3. DETAILED ANALYSIS / BREAKDOWN
-*   **The Ingestion Engine:** \scripts/ingest_docs.py\ uses Ollama's \
-omic-embed-text\ to vectorize markdown directly into \./memory_lance/datajacks\.
-*   **The MCP Server:** \mcp_servers/lancedb_mcp.py\ now correctly uses \python\ globally rather than \uv run\ due to pathing scopes in the desktop app, and dynamic \__file__\ resolution guarantees it finds the database regardless of CWD.
-*   **The Skills:** Custom skills are in \skills/\ and explicitly mapped in \.agents/skills.json\.
+- **The Skills Trap:** The `agy-customizations` guide states that if skills are stored in a non-standard location like `skills/`, they MUST be registered in `skills.json`. Because `.agents/` is ignored, that mapping is lost on git clones.
+- **The Ingestion Target:** The wiki update script specifically requires `sys.argv` or `argparse` to allow dynamic targets. The agent should test this by successfully ingesting `memory-wiki/` using the updated script.
 
 ---
 
 ## 4. IMPLEMENTATION STRATEGY
-Follow the strict GitOps and Board Protocols. Absolutely every modification�including updates to your own skills, configuration, or this handoff document�must go through a Kanban ticket and a sterile Git worktree sandbox. 
+1. Claim an issue from the GitHub project board using `aim-projects`.
+2. Spawn a GitOps worktree using `aim-gitops` (e.g. `git worktree add -b fix/issue-1 workspace/issue-1`).
+3. Make the surgical fix.
+4. Promote back to main and mark the issue as Done.
+5. Repeat for the remaining issues in the queue.
 
 ---
 
 ## 5. THE CRITICAL TRAPS & WARNINGS
-> **?? EPISTEMIC / OPERATIONAL WARNINGS**
-> - **META-MODIFICATIONS BLINDSPOT:** You are explicitly forbidden from modifying your own \.agents/\, \mcp_servers/\, or \skills/\ files without spawning a GitOps worktree. There are zero exemptions.
-> - **NO DIRECT COMMITS TO \master\:** Use \im-gitops\ and \im-projects\ for ALL work.
+> **⚠️ EPISTEMIC / OPERATIONAL WARNINGS**
+> - **META-MODIFICATIONS BLINDSPOT:** You are explicitly forbidden from modifying your own `.agents/`, `mcp_servers/`, or `skills/` files without spawning a GitOps worktree. There are zero exemptions.
+> - **TEST-DRIVEN DEVELOPMENT:** When making changes to `ingest_docs.py` or the initializer scripts, empirically verify they work by running them in your worktree before promoting.
 
 ---
 
 ## 6. KEY PATHS
-- **Memory Pool:** \C:\agy-joshua\memory_lance\ (Gitignored)
-- **Settings:** \C:\agy-joshua\.agents\plugins\lancedb\mcp_config.json\
-- **Skills Mapping:** \C:\agy-joshua\.agents\skills.json\
+- **Gitignore:** `C:\agy-joshua\.gitignore`
+- **Skills Mapping:** `C:\agy-joshua\.agents\skills.json`
+- **Initializer:** `C:\agy-joshua\init-workspace.ps1`
+- **Ingestion Script:** `C:\agy-joshua\scripts\ingest_docs.py`
 
 ---
 
 ## 7. THE FULL PICTURE / WHAT COMES AFTER
-The Operator will likely begin cloning this repository into multiple target project repositories to act as their foundational agentic OS, or begin ingesting Datajacks (documentation) into the LanceDB memory pool to provide you with domain-specific knowledge.
+Once these bootstrapping flaws are resolved, the Sovereign Node architecture will be truly portable. The Operator can safely clone this repo anywhere and immediately have a functional agentic operating system with fully discovered skills and active memory pools.
 
 ---
 
@@ -80,5 +98,6 @@ The Operator will likely begin cloning this repository into multiple target proj
 ---
 
 ## 9. IMMEDIATE NEXT STEPS
-1. Read the user's incoming prompt.
-2. If given a task, IMMEDIATELY invoke \im-projects\ to open a GitHub issue before doing anything else.
+1. Read this `HANDOFF.md` document entirely.
+2. Query the GitHub Project board using `aim-projects` (`gh project item-list 9 --owner BrianV1981`).
+3. Claim the first open BUG ticket and spawn a GitOps sandbox to fix it.

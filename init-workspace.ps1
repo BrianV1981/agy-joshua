@@ -32,9 +32,8 @@ $mcpConfig = @"
 {
   "mcpServers": {
     "lancedb": {
-      "command": "uv",
+      "command": "python",
       "args": [
-        "run",
         "mcp_servers/lancedb_mcp.py"
       ]
     }
@@ -51,4 +50,4 @@ if (-not (Test-Path $lanceDir)) {
 }
 
 Write-Host "`nSuccess! '$TargetWorkspace' is now an air-gapped Sovereign Node."
-Write-Host "The Antigravity IDE will automatically boot the local LanceDB MCP server using 'uv run' whenever you open this workspace."
+Write-Host "The Antigravity IDE will automatically boot the local LanceDB MCP server using 'python' whenever you open this workspace."

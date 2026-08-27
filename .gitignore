@@ -11,4 +11,5 @@ Thumbs.db
 
 # J.O.S.H.U.A. / Antigravity Specific
 memory_lance/
-.agents/
+.agents/*
+!.agents/skills.json

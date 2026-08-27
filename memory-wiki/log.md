@@ -12,3 +12,7 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 - **Skill Bugfix:** Fixed `aim-projects` skill which incorrectly used `--text` for single select fields in GitHub Projects v2.
 - **Zero-Exemption Policy:** Amended `GEMINI.md` to strictly forbid bypassing GitOps for meta-modifications.
 - **Files Touched:** Created `pages/agent_meta_modifications.md`.
+
+## [2026-08-27] ingest | End-to-End Audit & Configuration Drift
+- **Audit Findings:** Discovered critical bootstrap flaws (Gitignore trap, obsolete MCP init script) and an ingestion blindspot (memory-wiki was not indexed).
+- **Files Touched:** Created `pages/configuration_drift_audit.md`.

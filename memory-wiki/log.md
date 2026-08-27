@@ -23,3 +23,7 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 - **Ingestion Parameterized:** `ingest_docs.py` can now dynamically index target directories, fixing the blindspot where `memory-wiki/` was missing from the knowledge base.
 - **Graceful MCP Fallback:** `lancedb_mcp.py` now returns robust JSON telemetry when no tables are present, rather than opaque string errors.
 - **Files Touched:** `log.md`.
+
+## [2026-08-27] ingest | Memory System Architecture Documentation
+- **Documentation:** Mapped out the three distinct tiers of the Antigravity memory ecosystem (Session Brain, Persistent Global KI, and Project Sovereign Node).
+- **Files Touched:** Created `pages/memory_system_architecture.md`.

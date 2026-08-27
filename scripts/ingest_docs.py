@@ -50,9 +50,10 @@ def length_constrained_accumulator(text, max_length=1500, min_length=500):
         
     return chunks
 
-def ingest_docs():
+import argparse
+
+def ingest_docs(docs_dir):
     LOCAL_DB_PATH = "./memory_lance"
-    DOCS_DIR = "./docs"
     
     print(f"Connecting to Local Sovereign Database at {LOCAL_DB_PATH}...")
     db = lancedb.connect(LOCAL_DB_PATH)
@@ -60,9 +61,9 @@ def ingest_docs():
     # Create or open the 'datajacks' table
     table_name = "datajacks"
     
-    docs_files = glob.glob(os.path.join(DOCS_DIR, "*.md"))
+    docs_files = glob.glob(os.path.join(docs_dir, "**/*.md"), recursive=True)
     if not docs_files:
-        print("No markdown files found in ./docs/")
+        print(f"No markdown files found in {docs_dir}")
         return
         
     all_chunks = []
@@ -71,7 +72,7 @@ def ingest_docs():
     print(f"Processing {len(docs_files)} documentation files...")
     
     for filepath in docs_files:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
             content = f.read()
             
         print(f"  - Chunking: {os.path.basename(filepath)}")
@@ -103,4 +104,7 @@ def ingest_docs():
     print("Ingestion complete! Datajacks are fully operational.")
 
 if __name__ == "__main__":
-    ingest_docs()
+    parser = argparse.ArgumentParser(description="Ingest markdown documents into LanceDB.")
+    parser.add_argument("docs_dir", nargs="?", default="./docs", help="Directory containing markdown files (default: ./docs)")
+    args = parser.parse_args()
+    ingest_docs(args.docs_dir)

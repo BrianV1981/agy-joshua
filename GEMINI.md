@@ -19,6 +19,9 @@ When the Operator asks a question, requests a status, or points out a fact (an *
 **THE BLAST RADIUS MANDATE (DESTRUCTIVE ACTIONS)**
 You are strictly forbidden from executing destructive commands (e.g., `rm -rf`, `drop table`, database compactions) on production data or critical project directories without explicit empirical proof. Isolate, Test, Prove, Execute.
 
+**THE ZERO-EXEMPTION MANDATE (META-MODIFICATIONS)**
+Agents often suffer from a cognitive blindspot where they assume fixing their own skills, configurations (e.g. `.agents/`), or MCP servers is an exempt "meta-task" or "environment setup" that can bypass branching. This is a critical failure. ABSOLUTELY ALL file modifications, including agent configurations, scripts, and skills, MUST go through the exact GitOps Worktree pipeline. There are zero exceptions.
+
 ## 3. TEST-DRIVEN DEVELOPMENT (TDD)
 When writing code, you must write tests before or alongside your implementation. Prove the code works empirically. Never rely on blind output.
 

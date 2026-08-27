@@ -14,8 +14,10 @@ from mcp.server.fastmcp import FastMCP
 # Initialize the FastMCP server for the Sovereign Node
 mcp = FastMCP("LanceDB Sovereign Node Server")
 
-# Hardcoded to the local workspace's air-gapped memory pool
-LOCAL_DB_PATH = "./memory_lance"
+# Dynamically resolve the workspace root relative to this script's location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WORKSPACE_ROOT = os.path.dirname(SCRIPT_DIR)
+LOCAL_DB_PATH = os.path.join(WORKSPACE_ROOT, "memory_lance")
 
 @mcp.tool()
 def search_lancedb(query: str, limit: int = 5) -> str:

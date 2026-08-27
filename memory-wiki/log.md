@@ -16,3 +16,10 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 ## [2026-08-27] ingest | End-to-End Audit & Configuration Drift
 - **Audit Findings:** Discovered critical bootstrap flaws (Gitignore trap, obsolete MCP init script) and an ingestion blindspot (memory-wiki was not indexed).
 - **Files Touched:** Created `pages/configuration_drift_audit.md`.
+
+## [2026-08-27] ingest | Configuration Drift Resolution
+- **Gitignore Trap Fixed:** Un-ignored `.agents/skills.json` so cloned workspaces correctly discover their skill maps.
+- **MCP Init Updated:** `init-workspace.ps1` now uses the global Python interpreter instead of the obsolete `uv run`.
+- **Ingestion Parameterized:** `ingest_docs.py` can now dynamically index target directories, fixing the blindspot where `memory-wiki/` was missing from the knowledge base.
+- **Graceful MCP Fallback:** `lancedb_mcp.py` now returns robust JSON telemetry when no tables are present, rather than opaque string errors.
+- **Files Touched:** `log.md`.

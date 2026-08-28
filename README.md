@@ -22,7 +22,7 @@ This will copy the configurations into `~/.gemini/config/`.
 To prevent "context contamination" across projects, you should initialize individual repositories as isolated "Sovereign Nodes". This embeds a local LanceDB MCP server into the repo, ensuring its RAG memory (Datajacks) is strictly air-gapped and travels with the code.
 
 ```powershell
-.\init-workspace.ps1 -TargetWorkspace "C:\path\to\your\project"
+powershell -ExecutionPolicy Bypass -File .\init-workspace.ps1 -TargetWorkspace "C:\path\to\your\project"
 ```
 This script injects the `.agents/` plugin architecture and an isolated `./memory_lance` database into the target project.
 
@@ -48,3 +48,9 @@ The `docs/` directory contains the complete anatomical mapping of the J.O.S.H.U.
 **Note:** These documents are automatically ingested by the Antigravity KI system, granting agents native semantic awareness of the OS protocols.
 
 For the full index, refer to the [Docs README](docs/README.md).
+
+---
+
+## Support
+
+**[Buy Me a Coffee →](https://www.buymeacoffee.com/BrianV1981)**

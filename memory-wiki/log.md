@@ -24,6 +24,11 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 - **Graceful MCP Fallback:** `lancedb_mcp.py` now returns robust JSON telemetry when no tables are present, rather than opaque string errors.
 - **Files Touched:** `log.md`.
 
+## [2026-08-27] ingest | Unified CLI & Testing Framework
+- **Testing Framework:** Initialized `pytest` suite in `tests/`, mocking the local database to verify MCP fallback telemetry and testing the document chunking algorithm in `ingest_docs.py`.
+- **Unified Task Runner:** Wrapped bootstrap (`init`, `install`), operational (`ingest`), and development (`test`) procedures into a single `joshua.ps1` CLI to streamline Operator experience.
+- **Files Touched:** `log.md`.
+
 ## [2026-08-27] ingest | Memory System Architecture Documentation
 - **Documentation:** Mapped out the three distinct tiers of the Antigravity memory ecosystem (Session Brain, Persistent Global KI, and Project Sovereign Node).
 - **Files Touched:** Created `pages/memory_system_architecture.md`.

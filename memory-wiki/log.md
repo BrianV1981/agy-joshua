@@ -31,4 +31,9 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 
 ## [2026-08-27] ingest | Memory System Architecture Documentation
 - **Documentation:** Mapped out the three distinct tiers of the Antigravity memory ecosystem (Session Brain, Persistent Global KI, and Project Sovereign Node).
-- **Files Touched:** Created `pages/memory_system_architecture.md`.
+- **Files Touched:** Created `pages/memory_system_architecture.md`, updated `index.md`.
+
+## [2026-08-27] ingest | Unified Tooling & Testing Architecture
+- **Tooling Consolidation:** Documented the new unified Task Runner (`joshua.ps1`) CLI surface for bootstrapping and operations.
+- **Testing Standard:** Documented the `pytest` standard and `unittest.mock` strategies required to satisfy TDD mandates without mutating the database pools.
+- **Files Touched:** Created `pages/tooling_and_testing.md`, updated `index.md`.

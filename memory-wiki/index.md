@@ -9,3 +9,5 @@ Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This 
 - [Configuration Drift & Bootstrapping Blindspots](pages/configuration_drift_audit.md): End-to-End audit findings regarding the gitignore trap, obsolete MCP scripts, and ingestion blindspots.
 
 - [The Three-Tier Memory Architecture](pages/memory_system_architecture.md): A complete map of the Ephemeral Session Brain, Persistent Global Knowledge Items, and the Project Sovereign Node.
+
+- [Tooling and Testing Architecture](pages/tooling_and_testing.md): Documentation of the unified `joshua.ps1` Task Runner CLI and the `pytest` standard.

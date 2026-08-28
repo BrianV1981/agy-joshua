@@ -10,21 +10,21 @@
 
 J.O.S.H.U.A. is designed natively for Windows 11 and Antigravity IDE via PowerShell.
 
-### Option A: Global Skill & Rule Installation
-To inject the core mandates (`GEMINI.md`) and the operational skill library globally into your Antigravity IDE (so they apply to all future projects), run:
+### Option A: Global Skill Installation
+To inject the universal operational skill library globally into your Antigravity IDE (so the tools apply to all future projects), run:
 
 ```powershell
 .\install.ps1
 ```
 This will copy the configurations into `~/.gemini/config/`.
 
-### Option B: Sovereign Node Initialization (Multi-Tenant Air-Gapping)
-To prevent "context contamination" across projects, you should initialize individual repositories as isolated "Sovereign Nodes". This embeds a local LanceDB MCP server into the repo, ensuring its RAG memory (Datajacks) is strictly air-gapped and travels with the code.
+### Option B: Sovereign Node Initialization (Multi-Tenant Air-Gapping & Local Mandates)
+To prevent "context contamination" across projects, you should initialize individual repositories as isolated "Sovereign Nodes". This injects a localized copy of the J.O.S.H.U.A. mandates (`GEMINI.md`) into your workspace, and embeds a local LanceDB MCP server into the repo, ensuring its RAG memory (Datajacks) is strictly air-gapped and travels with the code.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\init-workspace.ps1 -TargetWorkspace "C:\path\to\your\project"
 ```
-This script injects the `.agents/` plugin architecture and an isolated `./memory_lance` database into the target project.
+This script injects the `.agents/` plugin architecture, an isolated `./memory_lance` database, and the core `GEMINI.md` mandates into the target project.
 
 ---
 

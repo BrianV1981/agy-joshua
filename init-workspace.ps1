@@ -49,5 +49,11 @@ if (-not (Test-Path $lanceDir)) {
     Write-Host "- Initialized isolated ./memory_lance Datajack pool"
 }
 
+# 5. Inject local Mandates (GEMINI.md)
+$sourceMandates = Join-Path $PSScriptRoot "GEMINI.md"
+$targetMandates = Join-Path $TargetWorkspace "GEMINI.md"
+Copy-Item -Path $sourceMandates -Destination $targetMandates -Force
+Write-Host "- Injected local GEMINI.md mandates"
+
 Write-Host "`nSuccess! '$TargetWorkspace' is now an air-gapped Sovereign Node."
 Write-Host "The Antigravity IDE will automatically boot the local LanceDB MCP server using 'python' whenever you open this workspace."

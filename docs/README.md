@@ -23,3 +23,4 @@ Any modifications, additions, or deletions in this directory are automatically c
 *   **`TESTING_AND_VALIDATION.md`**: Enforces the "TDD Reflex" and forbids "Vibe Coding." Mandates that all architectural changes must be empirically proven by automated tests before deployment.
 *   **`AGENTS_AMENDMENT_PROTOCOL.md`**: Rules for updating `GEMINI.md` mandates.
 *   **`HEADLESS_BOOTSTRAP_PROTOCOL.md`**: Rules for deploying sovereign agent nodes.
+*   **`REMOTE_CONTROL.md`**: Operational guidelines for off-site execution and remote node command dispatching.

@@ -38,6 +38,7 @@ J.O.S.H.U.A. provides a massive suite of tools to control, manage, and scale you
 *   **Knowledge Items (KI) Autopilot:** Internal project lore (`memory-wiki/`) is natively chunked, embedded, and indexed by Antigravity in real-time.
 *   **GitOps Enforcement:** Agents must create Git worktrees, write tests, and deploy atomically via native PowerShell skills (`aim-gitops`).
 *   **Continuity Pulse Handoffs:** When the context window fills up, the `aim-handoff` skill captures tactical state, ensuring the next agent inherits perfect epistemic certainty.
+*   **Remote Control Daemon:** Securely connect to and drive extended agent operations across your isolated environments from any web browser or Android/iOS PWA. See [Remote Control Docs](docs/REMOTE_CONTROL.md).
 
 ---
 

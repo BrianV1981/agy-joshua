@@ -37,3 +37,7 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 - **Tooling Consolidation:** Documented the new unified Task Runner (`joshua.ps1`) CLI surface for bootstrapping and operations.
 - **Testing Standard:** Documented the `pytest` standard and `unittest.mock` strategies required to satisfy TDD mandates without mutating the database pools.
 - **Files Touched:** Created `pages/tooling_and_testing.md`, updated `index.md`.
+
+## [2026-08-28] ingest | Remote Control Architecture
+- **Remote Integration:** Codified instructions and operational guidelines for utilizing the Antigravity Remote Control daemon and PWA mobile interfaces to orchestrate detached execution workloads.
+- **Files Touched:** Created `pages/remote_control.md`, updated `index.md`.

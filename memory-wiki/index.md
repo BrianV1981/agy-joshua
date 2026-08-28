@@ -11,3 +11,4 @@ Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This 
 - [The Three-Tier Memory Architecture](pages/memory_system_architecture.md): A complete map of the Ephemeral Session Brain, Persistent Global Knowledge Items, and the Project Sovereign Node.
 
 - [Tooling and Testing Architecture](pages/tooling_and_testing.md): Documentation of the unified `joshua.ps1` Task Runner CLI and the `pytest` standard.
+- [Remote Control Integration](pages/remote_control.md): Architecture for untethered, mobile execution and push notification feedback loops.

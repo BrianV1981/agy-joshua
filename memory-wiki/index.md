@@ -12,3 +12,5 @@ Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This 
 
 - [Tooling and Testing Architecture](pages/tooling_and_testing.md): Documentation of the unified `joshua.ps1` Task Runner CLI and the `pytest` standard.
 - [Remote Control Integration](pages/remote_control.md): Architecture for untethered, mobile execution and push notification feedback loops.
+- [Decentralized Local Mandates](pages/localized_mandates.md): The shift to zero-global-mandates, keeping rules strictly isolated per Sovereign Node.
+- [WSL Multi-Agent Orchestration](pages/wsl_orchestration.md): The Path 2a protocol for bridging Windows Antigravity with Linux coagents using file-based scratchpads.

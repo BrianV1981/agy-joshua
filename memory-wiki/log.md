@@ -41,3 +41,8 @@ This is a chronological, append-only record of J.O.S.H.U.A. operations.
 ## [2026-08-28] ingest | Remote Control Architecture
 - **Remote Integration:** Codified instructions and operational guidelines for utilizing the Antigravity Remote Control daemon and PWA mobile interfaces to orchestrate detached execution workloads.
 - **Files Touched:** Created `pages/remote_control.md`, updated `index.md`.
+
+## [2026-09-01] ingest | Localized Mandates & WSL Multi-Agent Orchestration
+- **Decentralized Local Mandates:** Documented the architectural shift to keep \GEMINI.md\ strictly isolated per Sovereign Node (zero-global-mandates).
+- **WSL Multi-Agent Orchestration:** Formally logged the "Path 2a" protocol for spawning and directing Linux coagents via WSL using the Shared Scratchpad (\im-communicate.md\), and explicitly demoting terminal scraping (Path 2b) to telemetry-only.
+- **Files Touched:** Updated \index.md\, created \pages/localized_mandates.md\ and \pages/wsl_orchestration.md\.

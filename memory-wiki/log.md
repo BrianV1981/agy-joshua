@@ -2,6 +2,11 @@
 
 This is a chronological, append-only record of J.O.S.H.U.A. operations.
 
+## [2026-09-01] ingest | Browser Orchestration & Stealth Architecture
+- **Tactical Strategy:** Documented the distinction between using the native `/browser` slash command (for pair programming/visible UI) versus the `aim-browser` repo (for hostile extraction/bot evasion).
+- **Architecture Refactor:** Recorded the shift from WSL-bound bash scripts to cross-platform Node.js for `aim-browser` to enable Windows 11 hardware GPU acceleration (fixing WebGL bot detection flags).
+- **Files Touched:** Created `pages/browser_orchestration_stealth.md` and updated `index.md`.
+
 ## [2026-08-27] ingest | Antigravity OS Architecture Overhaul
 - **Scaffolded Wiki:** Created initial `index.md`, `log.md`, and `pages/`.
 - **Architectural Shift:** Documented the migration away from the legacy Linux bash wrappers (`joshua_os/`) to the modern Windows Sovereign Node architecture.

@@ -14,3 +14,4 @@ Welcome to the internal memory Wiki for the `agy-joshua` Operating System. This 
 - [Remote Control Integration](pages/remote_control.md): Architecture for untethered, mobile execution and push notification feedback loops.
 - [Decentralized Local Mandates](pages/localized_mandates.md): The shift to zero-global-mandates, keeping rules strictly isolated per Sovereign Node.
 - [WSL Multi-Agent Orchestration](pages/wsl_orchestration.md): The Path 2a protocol for bridging Windows Antigravity with Linux coagents using file-based scratchpads.
+- [Browser Orchestration & Stealth](pages/browser_orchestration_stealth.md): Tactical distinctions between native MCP browser tools and standalone aim-browser stealth extraction, plus Windows 11 hardware acceleration mandates.

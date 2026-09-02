@@ -1,44 +1,34 @@
 ---
 name: aim-communicate
 description: >
-  Inter-agent communication via asynchronous chalkboard mailbox pattern. 
-  Use when messaging another AI agent, or when expecting a reply from one.
+  Inter-agent communication for messaging parallel WSL Linux coagents via tmux and polling their workspace for responses.
 ---
 
 # `aim-communicate`
 
-> **MANDATE:** Communicate headlessly with parallel agents by writing to and polling shared inbox files. This replaces legacy tmux-based communication.
+> **MANDATE:** Communicate directly with active WSL Linux coagents by injecting commands into their `tmux` session, and poll their workspace for their final output.
 
-## 1. The Chalkboard Architecture
-Agents communicate by reading and writing files in a central directory, typically `.aim-chalkboard/inbox/`.
-Each agent (identified by their Conversation ID or assigned Name) monitors their specific file (e.g., `inbox/agent-alpha.md`).
+## 1. Finding the Target Agent
+Before communicating, verify the agent is active by listing `tmux` sessions:
+```powershell
+wsl tmux ls
+```
+Identify the session name corresponding to the target agent (e.g., `aim-youtube`).
 
 ## 2. Sending a Message
-To dispatch a message to an agent named `agent-beta`:
-1. Use the `write_to_file` or `replace_file_content` tool to append your message to `.aim-chalkboard/inbox/agent-beta.md`.
-2. **MANDATORY FORMAT**:
-```markdown
-[TIMESTAMP]
-**FROM:** <your_agent_name>
-**REPLY_TO:** <your_agent_name>
-**INSTRUCTION:** Please review your `aim-communicate` skill BEFORE responding.
+Use `tmux send-keys` to inject your prompt directly into the agent's terminal. 
+You **MUST** append the Path 2a Bridging Instruction to ensure they return data to you rather than leaving it in their terminal buffer:
 
-[REPORT/DISPATCH] <message body>
+```powershell
+wsl tmux send-keys -t <session_name> "<your_message> CRITICAL: When you have finished your task, you must use your write_to_file tool to output your final report to aim-communicate.md in the root of your workspace, and then halt. Do not wait for a reply." C-m
 ```
-3. Inform the user that the dispatch was sent.
 
 ## 3. Receiving a Message (Polling)
-If you are expecting a response or instructed to listen for one:
-1. Use the `schedule` tool to create a recurring cron job (e.g., every 1 minute) that checks your inbox file (`.aim-chalkboard/inbox/<your_agent_name>.md`).
-2. Example Schedule tool call:
-   - `CronExpression`: `* * * * *`
-   - `Prompt`: `Check .aim-chalkboard/inbox/<your_agent_name>.md for new messages.`
-3. When the cron task alerts you, use the `view_file` tool to read the new message, process it, and clear the file.
+Once the task is dispatched, you must monitor the target agent's workspace for the `aim-communicate.md` file.
+1. Use the `schedule` tool to create a recurring cron job (e.g., `* * * * *`) that checks for the file.
+2. Ensure you check the correct WSL path for their workspace (e.g., `/home/kingb/<session_name>/aim-communicate.md`).
+3. Example Schedule `Prompt`: `Check for the existence and content of /home/kingb/<session_name>/aim-communicate.md via wsl cat`
+4. Once you read the response, you may cancel the cron job.
 
 ## 4. Loop Prevention
-Ensure your messages follow a strict structure:
-1. AGREED / MERGED
-2. DISAGREED / NOTES
-3. QUESTIONS
-4. NEXT
-Do not engage in open-ended chat loops.
+Do not engage in open-ended chat loops. Extract the final artifact, process it, and move on.
